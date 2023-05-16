@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoot The Fruits</title>
+</head>
+<body>
+<h2>Game Play</h2>
+<form action="/FireTop">
+    Top: <input type="range" name="position" min="0" max="100"/>
+        <input type="submit" value="Fire Top">
+</form>
+<form action="/FireBottom">
+    Top: <input type="range" name="position" min="0" max="100"/>
+        <input type="submit" value="Fire Bottom">
+</form>
+<form action="/Reset">
+      <input type="submit" value="New Game">
+<h2>Battlefield</h2>
+    {% for row in range(rows) %}
+        {% for col in range(cols) %}
+            <img scr="/static/{{fruits[row][col]}}.png" />
+        {% endfor %}
+        <br />
+    {% endfor %}
+<h2>Score: <b>{{score}}</b></h2>
+</form>
+</body>
+</html>
