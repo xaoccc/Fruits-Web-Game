@@ -74,5 +74,13 @@ def fire_bottom():
     return fire(position, rows - 1, -1)
 
 
+
 if __name__ == "__main__":
     app.run()
+
+# try in terminal:    
+# env/bin/activate
+# python -c "import flask; print(flask.__version__)"
+# export FLASK_APP=app
+# flask run
+# src: https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
