@@ -1,12 +1,8 @@
 from flask import Flask, render_template, redirect, request
-from logging import FileHandler, WARNING
 import random
 app = Flask(__name__)
-file_handler = FileHandler('errorlog.txt')
-file_handler.setLevel(WARNING)
-
-rows = 3
-cols = 9
+rows = 4
+cols = 4
 
 
 def generate_random_fruits():
@@ -16,10 +12,14 @@ def generate_random_fruits():
             r = random.randint(0, 8)
             if r < 2:
                 fruits[row].append("apple")
-            elif r < 5:
+            elif r < 4:
                 fruits[row].append("banana")
-            else:
+            elif r < 6:
+                fruits[row].append("orange")
+            elif r < 8:
                 fruits[row].append("kiwi")
+            else:
+                fruits[row].append("dynamite")
     return fruits
 
 
@@ -31,11 +31,12 @@ game_over = False
 def fire(position, start_row, step):
     col = position * (cols - 1) // 100
     row = start_row
-    while row >= 0 and row < rows:
+    while 0 <= row < rows:
         fruit = fruits[row][col]
-        if fruit in ['apple', 'banana', 'kiwi']:
+        if fruit in ['apple', 'banana', 'orange', 'kiwi']:
             global score
             score += 1
+            fruits[row][col] = "empty"
             break
 
         elif fruit == "dynamite":
@@ -49,7 +50,7 @@ def fire(position, start_row, step):
 
 @app.route('/')
 def index():
-    return render_template("index.html", rows=rows, cols=cols, game_over=game_over, score=score)
+    return render_template("index.html", rows=rows, fruits=fruits, cols=cols, score=score)
 
 
 @app.route('/Reset')
@@ -74,13 +75,8 @@ def fire_bottom():
     return fire(position, rows - 1, -1)
 
 
-
 if __name__ == "__main__":
     app.run()
 
-# try in terminal:    
-# env/bin/activate
-# python -c "import flask; print(flask.__version__)"
-# export FLASK_APP=app
-# flask run
-# src: https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
+
+

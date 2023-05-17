@@ -18,8 +18,8 @@
       <input type="submit" value="New Game">
 </form>
 <h2>Battlefield</h2>
-{% for row in range(rows) %}
-    {% for col in range(cols) %}
+{% for row in range(cols) %}
+    {% for col in range(rows) %}
         <img src="/static/{{fruits[row][col]}}.png">
     {% endfor %}
     <br />
