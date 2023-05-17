@@ -1,15 +1,15 @@
 from flask import Flask, render_template, redirect, request
 import random
 app = Flask(__name__)
-rows = 4
-cols = 4
+rows = 7
+cols = 18
 
 
 def generate_random_fruits():
     fruits = [[] for row in range(rows)]
     for row in range(rows):
         for col in range(cols):
-            r = random.randint(0, 8)
+            r = random.randint(0, 9)
             if r < 2:
                 fruits[row].append("apple")
             elif r < 4:
@@ -43,8 +43,8 @@ def fire(position, start_row, step):
             global game_over
             game_over = True
             break
-
         row = row + step
+
     return redirect("/")
 
 

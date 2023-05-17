@@ -6,25 +6,31 @@
 </head>
 <body>
 <h2>Game Play</h2>
-<form action="/FireTop">
-    Top: <input type="range" name="position" min="0" max="100"/>
-        <input type="submit" value="Fire Top"/>
-</form>
-<form action="/FireBottom">
-    Bottom: <input type="range" name="position" min="0" max="100"/>
-        <input type="submit" value="Fire Bottom"/>
-</form>
+{% if not game_over %}
+    <form action="/FireTop">
+        Top: <input type="range" name="position" min="0" max="100"/>
+            <input type="submit" value="Fire Top"/>
+    </form>
+    <form action="/FireBottom">
+        Bottom: <input type="range" name="position" min="0" max="100"/>
+            <input type="submit" value="Fire Bottom"/>
+    </form>
+{% endif %}
 <form action="/Reset">
       <input type="submit" value="New Game">
 </form>
-<h2>Battlefield</h2>
-{% for row in range(cols) %}
-    {% for col in range(rows) %}
-        <img src="/static/{{fruits[row][col]}}.png">
+{% if game_over %}
+    <h2>Game Over!</h2>
+    <img src="/static/explosion.png">
+{% else %}
+    <h2>Battlefield</h2>
+    {% for row in range(rows) %}
+        {% for col in range(cols) %}
+            <img src="/static/{{fruits[row][col]}}.png">
+        {% endfor %}
+        <br />
     {% endfor %}
-    <br />
-{% endfor %}
-<h2>Score: <b>{{score}}</b></h2>
-
+    <h2>Score: <b>{{score}}</b></h2>
+{% endif %}
 </body>
 </html>
