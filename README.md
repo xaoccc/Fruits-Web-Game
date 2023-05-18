@@ -1,5 +1,5 @@
 # Shoot the Fruits
-The goal is to shoot as many fruits as possible.
+This is a simple web game. The goal is to shoot as many fruits as possible.
 
  Written in Flask 2.3.2
 
