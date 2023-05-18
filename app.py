@@ -50,14 +50,15 @@ def fire(position, start_row, step):
 
 @app.route('/')
 def index():
-    return render_template("index.html", rows=rows, fruits=fruits, cols=cols, score=score)
+    return render_template("index.html", rows=rows, fruits=fruits, cols=cols, score=score, game_over=game_over)
 
 
 @app.route('/Reset')
 def reset():
     global fruits
     fruits = generate_random_fruits()
-
+    global score
+    score = 0
     global game_over
     game_over = False
     return redirect('/')
