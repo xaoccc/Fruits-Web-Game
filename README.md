@@ -9,11 +9,11 @@ Basic moments in creating a small Flask app (with no DB):
 1. Select/install virtual environment. It can be done either via settings->Project: [project name] > Project Interpreter section or command in the terminal. More about the terminal command <a href="https://stackoverflow.com/questions/22288569/how-do-i-activate-a-virtualenv-inside-pycharms-terminal">Here<a/>  
 2. Install Flask. In PyCharm terminal write pip install Flask.  
 3. Create necessary files/folders: in the priject dir create:  
- * Folder named "templates" for all html files. There shuold be at least 1 html file.  
+ * Folder named "templates" for all html files. There should be at least 1 html file.  
  * Folder named "static" for all css, png and other media files.  
  * File named with the name of the app, for example app_name.py.  
 4. Inside app_name.py import Flask, render_template, redirect, request  
-5. After the import, write app = Flask(__name__). __name__ is used to find all static assets, templates and so on.  
+5. After the import, write app = Flask(\_\_name\_\_). \_\_name\_\_ is used to find all static assets, templates and so on.  
 6. Create routes. render_template will render each html file and all variables used in app_name.py, so you should have something like this: 
  
  ```@app_name.route('/') <- '/' for main domain 127.0.0.1:5000, '/subdomain' for subdomain 127.0.0.1:5000/subdomain  
