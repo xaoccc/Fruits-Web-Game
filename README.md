@@ -27,7 +27,8 @@ Basic moments in creating a small Flask app (with no DB):
  ```  
  8. Start and stop the server after every change, so you can see if it works as supposed to. 
  9. Turn debug on. When you run the app in the terminal using the command 
- ```flask run 
+ ```
+ flask run 
  ```
  In the directory of your app and in your virtual environment. If you see an error "500 Internal Server Error", look in the terminal and find the row in your code, where the mistake is and fix it.
  Then try again and again until the app runs properly :)
