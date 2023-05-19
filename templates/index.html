@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
 <head>
     <meta charset="UTF-8">
     <title>Shoot The Fruits</title>
@@ -7,17 +8,17 @@
 <body>
 <h2>Game Play</h2>
 {% if not game_over %}
-    <form action="/FireTop">
-        Top: <input type="range" name="position" min="0" max="100"/>
-            <input type="submit" value="Fire Top"/>
+    <form action="/FireTop" id="top-scroll-form">
+        <span class="text" id="top-scroll-form-text">Top:</span> <input type="range" class="scroll" name="position" min="0" max="100"/>
+            <span class="attack"><input type="submit" value="Fire Top"/></span>
     </form>
     <form action="/FireBottom">
-        Bottom: <input type="range" name="position" min="0" max="100"/>
-            <input type="submit" value="Fire Bottom"/>
+        <span class="text">Bottom:</span> <input type="range" class="scroll"  name="position" min="0" max="100"/>
+            <span class="attack"><input type="submit" value="Fire Bottom"/></span>
     </form>
 {% endif %}
 <form action="/Reset">
-      <input type="submit" value="New Game">
+      <input class="reset-button" type="submit" value="New Game">
 </form>
 {% if game_over %}
     <h2>Game Over!</h2>
