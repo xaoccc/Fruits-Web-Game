@@ -1,0 +1,30 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+form {
+    height:36px;
+}
+h2 {
+    color: #333;
+}
+
+.attack {
+    position: relative;
+    top: -3px;
+}
+.attack input{
+    width: 120px;
+    background-color: #eef7ff;
+    
+}
+.text {
+    display: inline-block;
+    vertical-align: top;
+}
+#top-scroll-form {
+    margin-top: 10px;
+
+}
+#top-scroll-form-text{
+    padding-right: 26px;
+}
