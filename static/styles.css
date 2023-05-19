@@ -15,11 +15,30 @@ h2 {
 .attack input{
     width: 120px;
     background-color: #eef7ff;
-    
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #b1deff;
+    padding: 3px;
+}
+.reset-button {
+    background-color: #eef7ff;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #b1deff;
+    padding: 3px;
 }
 .text {
     display: inline-block;
     vertical-align: top;
+}
+.attack input:hover, .reset-button:hover{
+    background-color: #13157c;
+    color: white;
+    border-color: black;
+    cursor: pointer;
+}
+.scroll:hover{
+    cursor: pointer;
 }
 #top-scroll-form {
     margin-top: 10px;
